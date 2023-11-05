@@ -1,0 +1,36 @@
+:root{
+
+    /*font family*/
+    --ff-main: 'Archivo', sans-serif;
+    --ff-secondary:'Roboto', sans-serif;
+
+    /*font size*/
+    --fs-xl:5rem;
+    --fs-lg:2.5rem;
+    --fs-md:1.125rem;
+    --fs-nm:1rem;
+    --fs-sm:0.875rem;
+    --fs-usm:0.675rem;
+
+    /*font weight*/
+    --fw-bk:990;
+    --fw-md:500;
+    --fw-rg:400;
+
+
+    /*colors*/
+    --clr-main:hsla(0,100%,50%);
+    --clr-red-secondary: rgb(155, 0, 0);
+    --clr-white:rgb(255, 255, 255);
+    --clr-yellow: rgb(255, 209, 0);;
+    --clr-gray: hsla(0, 0%, 63%, 0.821);
+    --clr-gray-text: rgb(36, 51, 51);
+    --clr-white-bg: rgb(242, 238, 238);
+    --clr-black: hsla(0, 0%, 0%, 1);
+}
+
+
+
+
+
+

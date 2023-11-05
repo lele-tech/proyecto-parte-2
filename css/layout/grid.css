@@ -1,0 +1,63 @@
+/* Clase para el contenedor de recetas */
+.recipes-container {
+    display: grid;
+    width: 80vw;
+    margin: 2rem auto;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    /**/
+    gap: 1.5rem;
+}
+
+/* Clase para la sección de una receta */
+.recipe {
+    display: grid;
+    background: var(--clr-white-bg);
+    border-radius: 2rem;
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+/* Clase para el contenedor de las 10 mejores recetas */
+.top10-container {
+    text-align: center;
+}
+
+/* Clase para la imagen de una receta */
+.recipe-thumb {
+    display: flex;
+    position: relative;
+    padding: 0 1rem;
+}
+
+/* Clase para los detalles de una receta */
+.details {
+    display: block;
+    text-decoration: none;
+    font-size: var(--fs-usm);
+    color: var(--clr-gray-text);
+    padding: .5rem 1rem;
+    border-radius: 1.5rem;
+    background-color: var(--clr-white); 
+}
+
+/* Clase para el contenedor de llamada a la acción */
+.cta-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Clase para el contenedor del proceso */
+.process-container {
+    text-align: center; 
+    max-width: 55%; 
+    margin: 5rem auto 8rem; 
+}
+
+/* Estilos para pantallas más pequeñas */
+@media (max-width: 767.8px) {
+    /* Ajusta el ancho máximo del contenedor del proceso para pantallas pequeñas */
+    .process-container{
+       max-width: 22rem; 
+    } 
+}

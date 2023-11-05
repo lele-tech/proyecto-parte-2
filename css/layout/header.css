@@ -1,0 +1,9 @@
+/* Clase para el contenedor del header */
+.hero-container {
+    background: var(--clr-main);
+    margin: -1rem 0 0;
+    width: 100%;
+    display: grid;
+    padding: 0%;
+}
+

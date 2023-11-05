@@ -1,0 +1,14 @@
+/* Estilos para el body de la página */
+body {
+    font-family: var(--ff-secondary); /* Define la fuente de texto secundaria */
+    margin: 0; /* Elimina los márgenes predeterminados del cuerpo */
+    padding: 0; /* Elimina el relleno predeterminado del cuerpo */
+}
+
+/* Estilos para pantallas más pequeñas */
+@media (max-width: 767.8px) {
+    /* Ajusta el tamaño de fuente del cuerpo para pantallas pequeñas */
+    .body {
+       font-size: 0.175rem; /* Tamaño de fuente reducido para pantallas pequeñas */
+    }
+}
