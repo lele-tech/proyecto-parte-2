@@ -1,3 +1,10 @@
+<?php
+    require_once './database.php';
+    // Reference: https://medoo.in/api/select
+    $items = $database->select("tb_recipes","*");
+    
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,179 +33,32 @@
 
      <!-- recipes -->
      <section class="top10-container">
-        <h2 class="top10-title">Lo Mas Destacado</h2>
+        <h2 class="top10-title">The most outstanding</h2>
        
-
         <div class="recipes-container">
-            <section class="recipe">
-                <div class="recipe-thumb">
-                    <div class="rating">
-                        <span class="star"></span>
-                    </div>
-                    <img class="recipe-image" src="./imgs/paella.jpg" alt="PAELLA">
-                </div>
+        <?php
+            foreach($items as $item){
+                echo "<section class='recipe'>";
+                echo "<div class='recipe-thumb'>";
+                echo    "<div class='rating'>";
+                        echo "<span class='star' ></span>";
+                        echo   "</div>";
+                        echo  "<img class='recipe-image' src='./scraping/images/".$item["recipe_image"]."' alt='".$item["recipe_name"]."'>";
+                        echo "</div>";
 
-                <div>
-                    <h3 class="recipe-title">Paella</h3>
-                    <p class="recipe-text">La paella es un plato español de arroz con pollo, mariscos y especias,
-                        cocinado
-                        en una sartén grande.</p>
-                </div>
-                 <!-- buton -->
-                 <div class="cta-container">
-                    <a class="btn-recipe nav-list-link" href="./description.html">Mas</a>
-                </div>
-                <!-- buton -->
-            </section>
+                        echo  "<div>";
+                        echo   "<h3 class='recipe-title'>".$item["recipe_name"]."</h3>";
+                        echo  "<p class='recipe-text'>".substr($item["recipe_description"], 0, 70)."</p>";
+                        echo  "</div>";
+                    
+                        echo "<div class='cta-container'>";
+                        echo  "<a class='btn-recipe nav-list-link' href='.description.php?id=".$item["id_recipe"]."'>More</a>";
+                        echo "</div>";
+                        echo  "</section>";
+                
+                    }
+        ?>
 
-            <section class="recipe">
-                <div class="recipe-thumb">
-                    <div class="rating">
-                        <span class="star" ></span>
-                    </div>
-                    <img class="recipe-image" src="./imgs/paella.jpg" alt="PAELLA">
-                </div>
-
-                <div>
-                    <h3 class="recipe-title">Paella</h3>
-                    <p class="recipe-text">La paella es un plato español de arroz con pollo, mariscos y especias,
-                        cocinado
-                        en una sartén grande.</p>
-                </div>
-                 <!-- buton -->
-                 <div class="cta-container">
-                    <a class="btn-recipe nav-list-link" href="./description.html">Mas</a>
-                </div>
-                <!-- buton -->
-            </section>
-
-            <section class="recipe">
-                <div class="recipe-thumb">
-                    <div class="rating">
-                        <span class="star"></span>
-                    </div>
-                    <img class="recipe-image" src="./imgs/paella.jpg" alt="PAELLA">
-                </div>
-
-                <div>
-                    <h3 class="recipe-title">Paella</h3>
-                    <p class="recipe-text">La paella es un plato español de arroz con pollo, mariscos y especias,
-                        cocinado
-                        en una sartén grande.</p>
-                </div>
-                 <!-- buton -->
-                 <div class="cta-container">
-                    <a class="btn-recipe nav-list-link" href="./description.html">Mas</a>
-                </div>
-                <!-- buton -->
-            </section>
-
-            <section class="recipe">
-                <div class="recipe-thumb">
-                    <div class="rating">
-                        <span class="star"></span>
-                    </div>
-                    <img class="recipe-image" src="./imgs/paella.jpg" alt="PAELLA">
-                </div>
-
-                <div>
-                    <h3 class="recipe-title">Paella</h3>
-                    <p class="recipe-text">La paella es un plato español de arroz con pollo, mariscos y especias,
-                        cocinado
-                        en una sartén grande.</p>
-                </div>
-                 <!-- buton -->
-                 <div class="cta-container">
-                    <a class="btn-recipe nav-list-link" href="./description.html">Mas</a>
-                </div>
-                <!-- buton -->
-            </section>
-        </div>
-
-        <div class="recipes-container">
-            <section class="recipe">
-                <div class="recipe-thumb">
-                    <div class="rating">
-                        <span class="star"></span>
-                    </div>
-                    <img class="recipe-image" src="./imgs/paella.jpg" alt="PAELLA">
-                </div>
-
-                <div>
-                    <h3 class="recipe-title">Paella</h3>
-                    <p class="recipe-text">La paella es un plato español de arroz con pollo, mariscos y especias,
-                        cocinado
-                        en una sartén grande.</p>
-                </div>
-                 <!-- buton -->
-                 <div class="cta-container">
-                    <a class="btn-recipe nav-list-link" href="./description.html">Mas</a>
-                </div>
-                <!-- buton -->
-            </section>
-
-            <section class="recipe">
-                <div class="recipe-thumb">
-                    <div class="rating">
-                        <span class="star"></span>
-                    </div>
-                    <img class="recipe-image" src="./imgs/paella.jpg" alt="PAELLA">
-                </div>
-
-                <div>
-                    <h3 class="recipe-title">Paella</h3>
-                    <p class="recipe-text">La paella es un plato español de arroz con pollo, mariscos y especias,
-                        cocinado
-                        en una sartén grande.</p>
-                </div>
-                 <!-- buton -->
-                 <div class="cta-container">
-                    <a class="btn-recipe nav-list-link" href="./description.html">Mas</a>
-                </div>
-                <!-- buton -->
-            </section>
-
-            <section class="recipe">
-                <div class="recipe-thumb">
-                    <div class="rating">
-                        <span class="star"></span>
-                    </div>
-                    <img class="recipe-image" src="./imgs/paella.jpg" alt="PAELLA">
-                </div>
-
-                <div>
-                    <h3 class="recipe-title">Paella</h3>
-                    <p class="recipe-text">La paella es un plato español de arroz con pollo, mariscos y especias,
-                        cocinado
-                        en una sartén grande.</p>
-                </div>
-                 <!-- buton -->
-                 <div class="cta-container">
-                    <a class="btn-recipe nav-list-link" href="./description.html">Mas</a>
-                </div>
-                <!-- buton -->
-            </section>
-
-            <section class="recipe">
-                <div class="recipe-thumb">
-                    <div class="rating">
-                        <span class="star"></span>
-                    </div>
-                    <img class="recipe-image" src="./imgs/paella.jpg" alt="PAELLA">
-                </div>
-
-                <div>
-                    <h3 class="recipe-title">Paella</h3>
-                    <p class="recipe-text">La paella es un plato español de arroz con pollo, mariscos y especias,
-                        cocinado
-                        en una sartén grande.</p>
-                </div>
-                 <!-- buton -->
-                 <div class="cta-container">
-                    <a class="btn-recipe nav-list-link" href="./description.html">Mas</a>
-                </div>
-                <!-- buton -->
-            </section>
         </div>
     </section>
     <!-- recipes -->
@@ -206,134 +66,28 @@
 
     <!-- recipes -->
     <section class="top10-container">
-        <h2 class="top10-title comidas-tittle">Comidas</h2>
+        <h2 class="top10-title comidas-tittle">Food</h2>
         <div class="recipes-container">
-            <section class="recipe">
-                <div class="recipe-thumb">
-                    <img class="recipe-image" src="./imgs/paella.jpg" alt="PAELLA">
-                    <span class="recipe-price">$8</span>
-                </div>
-                <h3 class="recipe-title">Paella</h3>
-                <p class="recipe-text">La paella es un plato español de arroz con pollo, mariscos y especias, cocinado
-                    en una sartén grande.</p>
-                     <!-- buton -->
-                <div class="cta-container">
-                    <a class="btn-recipe nav-list-link" href="./description.html">Mas</a>
-                </div>
-                <!-- buton -->
+        <?php
+            foreach($items as $item){
+                echo "<section class='recipe'>";
+                echo "<div class='recipe-thumb'>";
+                        echo  "<img class='recipe-image' src='./scraping/images/".$item["recipe_image"]."' alt='".$item["recipe_name"]."'>";
+                        echo "</div>";
 
-            </section>
-
-            <section class="recipe">
-                <div class="recipe-thumb">
-                    <img class="recipe-image" src="./imgs/paella.jpg" alt="PAELLA">
-                    <span class="recipe-price">$8</span>
-                </div>
-                <h3 class="recipe-title">Paella</h3>
-                <p class="recipe-text">La paella es un plato español de arroz con pollo, mariscos y especias, cocinado
-                    en una sartén grande.</p>
-                     <!-- buton -->
-                <div class="cta-container">
-                    <a class="btn-recipe nav-list-link" href="./description.html">Mas</a>
-                </div>
-                <!-- buton -->
-
-            </section>
-
-            <section class="recipe">
-                <div class="recipe-thumb">
-                    <img class="recipe-image" src="./imgs/paella.jpg" alt="PAELLA">
-                    <span class="recipe-price">$8</span>
-                </div>
-                <h3 class="recipe-title">Paella</h3>
-                <p class="recipe-text">La paella es un plato español de arroz con pollo, mariscos y especias, cocinado
-                    en una sartén grande.</p>
-                     <!-- buton -->
-                <div class="cta-container">
-                    <a class="btn-recipe nav-list-link" href="./description.html">Mas</a>
-                </div>
-                <!-- buton -->
-
-            </section>
-
-            <section class="recipe">
-                <div class="recipe-thumb">
-                    <img class="recipe-image" src="./imgs/paella.jpg" alt="PAELLA">
-                    <span class="recipe-price">$8</span>
-                </div>
-                <h3 class="recipe-title">Paella</h3>
-                <p class="recipe-text">La paella es un plato español de arroz con pollo, mariscos y especias, cocinado
-                    en una sartén grande.</p>
-                     <!-- buton -->
-                <div class="cta-container">
-                    <a class="btn-recipe nav-list-link" href="./description.html">Mas</a>
-                </div>
-                <!-- buton -->
-
-            </section>
-        </div>
-
-        <div class="recipes-container">
-            <section class="recipe">
-                <div class="recipe-thumb">
-                    <img class="recipe-image" src="./imgs/paella.jpg" alt="PAELLA">
-                    <span class="recipe-price">$8</span>
-                </div>
-                <h3 class="recipe-title">Paella</h3>
-                <p class="recipe-text">La paella es un plato español de arroz con pollo, mariscos y especias, cocinado
-                    en una sartén grande.</p>
-                     <!-- buton -->
-                <div class="cta-container">
-                    <a class="btn-recipe nav-list-link" href="./topRecipes.html">Mas</a>
-                </div>
-                <!-- buton -->
-
-            </section>
-
-            <section class="recipe">
-                <div class="recipe-thumb">
-                    <img class="recipe-image" src="./imgs/paella.jpg" alt="PAELLA">
-                    <span class="recipe-price">$8</span>
-                </div>
-                <h3 class="recipe-title">Paella</h3>
-                <p class="recipe-text">La paella es un plato español de arroz con pollo, mariscos y especias, cocinado
-                    en una sartén grande.</p>
-                     <!-- buton -->
-                <div class="cta-container">
-                    <a class="btn-recipe nav-list-link" href="./topRecipes.html">Mas</a>
-                </div>
-                <!-- buton -->
-
-            </section>
-
-            <section class="recipe">
-                <div class="recipe-thumb">
-                    <img class="recipe-image" src="./imgs/paella.jpg" alt="PAELLA">
-                    <span class="recipe-price">$8</span>
-                </div>
-                <h3 class="recipe-title">Paella</h3>
-                <p class="recipe-text">La paella es un plato español de arroz con pollo, mariscos y especias, cocinado
-                    en una sartén grande.</p>
-                     <!-- buton -->
-                <div class="cta-container">
-                    <a class="btn-recipe nav-list-link" href="./topRecipes.html">Mas</a>
-                </div>
-                <!-- buton -->
-
-            </section>
-
-            <section class="recipe">
-                <div class="recipe-thumb">
-                    <img class="recipe-image" src="./imgs/paella.jpg" alt="PAELLA">
-                    <span class="recipe-price">$8</span>
-                </div>
-                <h3 class="recipe-title">Paella</h3>
-                <p class="recipe-text">La paella es un plato español de arroz con pollo, mariscos y especias, cocinado
-                    en una sartén grande.</p>
-                     <!-- buton -->
-                <div class="cta-container">
-                    <a class="btn-recipe nav-list-link" href="./topRecipes.html">Mas</a>
-                </div>
+                        echo  "<div>";
+                        echo   "<h3 class='recipe-title'>".$item["recipe_name"]."</h3>";
+                        echo  "<p class='recipe-text'>".substr($item["recipe_description"], 0, 70)."</p>";
+                        echo  "</div>";
+                    
+                        echo "<div class='cta-container'>";
+                        echo  "<a class='btn-recipe nav-list-link' href='.description.php?id=".$item["id_recipe"]."'>More</a>";
+                        echo "</div>";
+                        echo  "</section>";
+                
+                    }
+        ?>
+           
                 <!-- buton -->
 
             </section>
@@ -343,7 +97,7 @@
 
     <!-- buton -->
     <div class="cta-container">
-        <a class="btn nav-list-link" href="./topRecipes.html">Acerca</a>
+        <a class="btn nav-list-link" href="./topRecipes.php">Acerca</a>
     </div>
     <!-- buton -->
 
