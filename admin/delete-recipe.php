@@ -22,10 +22,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delete destination</title>
+    <title>Delete Recipe</title>
 </head>
 <body>
-    <h2>Delete destination: <?php echo $data[0]["id_recipe"]; ?></h2>
+    <h2>Delete recipe: <?php echo $data[0]["id_recipe"]; ?></h2>
     <form method="post" action="delete-recipe.php">
         <input name="id" type="hidden" value="<?php echo $data[0]["id_recipe"]; ?>">
         <input type="button" onclick="history.back();" value="CANCEL">
