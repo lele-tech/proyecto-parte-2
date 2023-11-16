@@ -1,6 +1,6 @@
 <header class="hero-container">
         <nav class="top-nav">
-            <a href="#"><img class="logo-scale" src="../imgs//LOGO.png" alt="Logo"></a>
+            <a href="#"><img class="logo-scale" src="../imgs/LOGO.png" alt="Logo"></a>
             <!-- mobile nav btn -->
             <input class="mobile-check" type="checkbox">
             <label class="mobile-btn">
