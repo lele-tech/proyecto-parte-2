@@ -102,6 +102,9 @@
         echo "<br>";
         echo rand (1*10, 70*10)/10;
         echo "<br>";
+        
+        //recordar que se movio la ruta donde se almacenan las imagenes
+
        /* $menu_items--;
         if($menu_items == 0) break;
         $database->insert("tb_recipes",[

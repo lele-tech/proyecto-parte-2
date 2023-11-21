@@ -1,3 +1,21 @@
+<?php
+
+    require_once './database.php';
+    if($_GET){
+    $item = $database->select("tb_recipes",[
+        "[>]tb_categories"=>["id_category" => "id_category"],
+    ],[
+        "tb_recipes.id_recipe",
+        "tb_recipes.recipe_name",
+        "tb_recipes.recipe_description",
+        "tb_recipes.recipe_image",
+        "tb_recipes.recipe_price",
+        "tb_categories.name_category"
+    ],[
+        "id_recipe"=>$_GET["id"]
+    ]);
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,30 +39,18 @@
 
     <section>
         <div class="recipes-container">
-            <div class="description-recipe">
-                <div class="recipe-thumb">
-                    <img class="recipe-image" src="./imgs/paella.jpg" alt="PAELLA">
-                </div>
-                <div>
-                    <h3 class="recipe-title">Paella</h3>
-                    <p class="recipe-text">La paella es un plato español de arroz con pollo, mariscos y especias,cocinadoen una sartén grande.</p>
-                    <ul class="about-list">
-                        <li>
-                            <p>20min</p>
-                        </li>
-                        <li>
-                            <p>20min</p>
-                        </li>
-                        <li>
-                            <p>20min</p>
-                        </li>
-                        <li>
-                            <p>20min</p>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
+        <?php
+            echo "<div class='description-recipe'>";
+                echo " <div class='recipe-thumb'>";
+                echo "<img class='recipe-image' src='./scraping/images/".$item[0]["recipe_image"]. "'alt='".$item[0]["recipe_name"]."'>";
+                echo " <span class='recipe-price'>".$item[0]["recipe_price"]."</span>";
+            echo   "</div>";
+            echo "<div>";
+                echo  "<h3 class='recipe-title'>".$item[0]["recipe_name"].": (".$item[0]["name_category"].")"."</h3>";
+                 echo  "<p class='recipe-text'>".$item[0]["recipe_description"]."</p>";
+                   echo"</div>";
+                   echo"</div>";
+            ?>
             <div class="description-recipe">
                 <div>
                     <h3 class="recipe-title ingredients-text">Ingredientes</h3>
@@ -77,6 +83,7 @@
                 </div>
             </div>
         </div>
+
     </section>
 
     <section>

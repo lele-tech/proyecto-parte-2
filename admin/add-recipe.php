@@ -48,7 +48,7 @@
                 $filename = str_replace('.', '', $filename);
                 $filename = str_replace(' ', '-', $filename);
                 $img = "location-".$filename.".".$file_ext;
-                move_uploaded_file($file_tmp, "../imgs/".$img);
+                move_uploaded_file($file_tmp, "..scraping/images/".$img);
 
                 $database->insert("tb_recipes",[
                     "id_category"=> $_POST["category"],
@@ -122,7 +122,7 @@
             </div>
             <div class="form-items">
                 <label for="recipe_image">Recipe Image</label>
-                <img id="preview" src="../imgs/destination-placeholder.webp" alt="Preview">
+                <img id="preview" src="..scraping/images/" alt="Preview">
                 <input id="recipe_image" type="file" name="recipe_image" onchange="readURL(this)">
             </div>
             <div class="form-items">
