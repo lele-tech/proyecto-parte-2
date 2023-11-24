@@ -17,6 +17,17 @@
     padding: 2rem 1rem;
 }
 
+.recipe-admin {
+    display: grid;
+    background: var(--clr-white-bg);
+    border-radius: 2rem;
+    padding: 2rem 1rem;
+}
+
+.admin-margin{
+    margin: 1rem;
+}
+
 /* Clase para el contenedor de las 10 mejores recetas */
 .top10-container {
     text-align: center;

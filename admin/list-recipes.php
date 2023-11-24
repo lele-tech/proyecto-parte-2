@@ -9,14 +9,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registered Recipes</title>
+     <!-- google fonts -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@900&family=Roboto:wght@400;500&display=swap"
+        rel="stylesheet">
+    <!-- google fonts -->
     <link rel="stylesheet" href="../css/mainRecipes.css">
 </head>
 <body>
     <?php 
         include "../parts/header-admin.php";
     ?>
-    <h2 class="recipe-title">Registered Recipes</h2>
-    <table class="recipe-text">
+    <div class ="recipe-admin">
+    <h2 >Registered Recipes</h2>
+    <table class= "recipe-thumb">
         <?php
             foreach($items as $item){
                 echo "<tr>";
@@ -26,6 +33,7 @@
             }
         ?>
     </table>
+    </div>
     
     <?php 
         include "../parts/footer.php";

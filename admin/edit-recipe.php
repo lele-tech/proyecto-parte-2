@@ -46,7 +46,7 @@
                 $filename = str_replace('.', '', $filename);
                 $filename = str_replace(' ', '-', $filename);
                 $img = "location-".$filename.".".$file_ext;
-                move_uploaded_file($file_tmp, "../imgs/".$img);
+                move_uploaded_file($file_tmp, "../scraping/images/".$img);
 
                
             }
@@ -75,6 +75,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Recipe</title>
+     <!-- google fonts -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@900&family=Roboto:wght@400;500&display=swap"
+        rel="stylesheet">
+    <!-- google fonts -->
     <link rel="stylesheet" href="../css/mainRecipes.css">
 </head>
 <body>
@@ -127,7 +133,7 @@
             
             <div class="form-items">
                 <label for="recipe_image">Recipe Image</label>
-                <img id="preview" src="../imgs/<?php echo  $item[0]["recipe_image"] ?>" alt="Preview">
+                <img id="preview" src="../scraping/images/<?php echo  $item[0]["recipe_image"] ?>" alt="Preview">
                 <input id="recipe_image" type="file" name="recipe_image" onchange="readURL(this)">
             </div>
             <div class="form-items">

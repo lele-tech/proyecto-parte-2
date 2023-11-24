@@ -45,6 +45,16 @@
     transition: background-color 0.3s, color 0.3s;
 }
 
+.btn-admin {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    align-items: center;
+    background: var(--clr-yellow);
+    padding: .5rem 2rem;
+    border-radius: 1.5rem;
+    transition: background-color 0.3s, color 0.3s;
+}
+
 .btn:hover {
     background-color: #1e70b9; /* Cambia el color al pasar el mouse */
 }

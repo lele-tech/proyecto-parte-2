@@ -1,10 +1,4 @@
 <?php 
-    /***
-     * 0. include database connection file
-     * 1. receive form values from post and insert them into the table (match table field with values from name atributte)
-     * 2. for the destination_image insert the value "destination-placeholder.webp"
-     * 3. redirect to destinations-list. php after complete the insert into
-     */
 
      require_once '../database.php';
 
@@ -70,23 +64,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Recipe</title>
+     <!-- google fonts -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@900&family=Roboto:wght@400;500&display=swap"
+        rel="stylesheet">
+    <!-- google fonts -->
     <link rel="stylesheet" href="../css/mainRecipes.css">
 </head>
 <body>
     <?php 
         include "../parts/header-admin.php";
     ?>
-    <div class="container">
+    <div class="recipe-admin">
         <h2>Add New Recipe</h2>
         <?php 
             echo $message;
         ?>
         <form method="post" action="add-recipe.php" enctype="multipart/form-data">
-            <div class="form-items">
+            <div class="form-items recipe-thumb admin-margin">
                 <label for="recipe_name">Recipe name</label>
-                <input id="recipe_name" class="textfield" name="recipe_name" type="text">
+                <input id="recipe_name " class="textfield" name="recipe_name" type="text">
             </div>
-            <div class="form-items">
+            <div class="form-items recipe-thumb admin-margin">
                 <label for="category">Recipe category</label>
                 <select name="category" id="category">
                     <?php 
@@ -96,7 +96,7 @@
                     ?>
                 </select>
             </div>
-            <div class="form-items">
+            <div class="form-items recipe-thumb admin-margin">
                 <label for="featured_recipe">Featured Recipe</label>
                 <select name="featured_recipe" id="featured_recipe">
                     <?php 
@@ -106,7 +106,7 @@
                     ?>
                 </select>
             </div>
-            <div class="form-items">
+            <div class="form-items recipe-thumb admin-margin">
                 <label for="people_category">People Category</label>
                 <select name="people_category" id="people_category">
                     <?php 
@@ -116,21 +116,21 @@
                     ?>
                 </select>
             </div>
-            <div class="form-items">
+            <div class="form-items recipe-thumb admin-margin">
                 <label for="recipe_description">Recipe Description</label>
                 <textarea id="recipe_description" name="recipe_description" id="" cols="30" rows="10"></textarea>
             </div>
-            <div class="form-items">
+            <div class="form-items recipe-thumb admin-margin">
                 <label for="recipe_image">Recipe Image</label>
                 <img id="preview" src="..scraping/images/" alt="Preview">
                 <input id="recipe_image" type="file" name="recipe_image" onchange="readURL(this)">
             </div>
-            <div class="form-items">
+            <div class="form-items recipe-thumb admin-margin">
                 <label for="recipe_price">Recipe Price</label>
                 <input id="recipe_price" class="textfield" name="recipe_price" type="text">
             </div>
-            <div class="form-items">
-                <input class="submit-btn" type="submit" value="Add New Recipe">
+            <div class="form-items recipe-thumb admin-margin">
+                <input class="btn-recipe" type="submit" value="Add New Recipe">
             </div>
         </form>
     </div>
