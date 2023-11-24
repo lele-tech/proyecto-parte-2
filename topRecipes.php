@@ -2,11 +2,17 @@
     require_once './database.php';
     // Reference: https://medoo.in/api/select
     
+    
   //el que se usa en el keyword
-    if(isset($_GET["keyword"])){
+    if(isset($_GET["keyword"]) && isset($_GET["recipe_category"])){
 
-        $items = $database->select("tb_recipes","*",["recipe_name[~]" => $_GET["keyword"]]);
-
+        $items = $database->select("tb_recipes","*",["recipe_name[~]" => $_GET["keyword"],
+         "AND"=>[
+            "id_category" => $_GET["recipe_category"]
+         ]
+         
+    ]);
+        $category = $database->select("tb_categories","*",["id_category" => $_GET["recipe_category"]]);
     }else{
         echo "notfound";
     }
@@ -56,7 +62,7 @@
         <?php
             if(count($items)> 0){
             $keyword = htmlspecialchars($_GET["keyword"]);
-            echo "<p class='recipe-title'> We found: <span class='recipe-title'>".count($items)."</span> recipes with <span class='recipe-title'>$keyword</span> </p>";
+            echo "<p class='recipe-title'> We found: <span class='recipe-title'>".count($items)."</span> recipes with <span class='recipe-title'>".$keyword. " , ".$category[0]["name_category"]."</span> </p>";
             }
         ?>
 
@@ -94,7 +100,7 @@
                     }
                 }else{
                     $keyword = htmlspecialchars($_GET["keyword"]);
-                    echo "<h3 class='activity-title'>No results for ".$keyword."</h3>";
+                    echo "<h3 class='activity-title'>No results for ".$keyword." , ".$category[0]["name_category"]. "</h3>";
                 }
                     
                 ?>

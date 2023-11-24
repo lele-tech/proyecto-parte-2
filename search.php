@@ -3,7 +3,7 @@
     // Reference: https://medoo.in/api/select
     $items = $database->select("tb_recipes","*");
 
-    
+    $categories = $database->select("tb_categories","*");
 
      // Reference: https://medoo.in/api/select
      //$categories = $database->select("tb_camping_categories","*");
@@ -37,8 +37,18 @@
                    <input id="search" class="search" type="text" name="keyword">
 
                 
-                    <input type="submit" class=" nav-list-link btn-admin" value="SEARCH RECIPE">
+                    <input type="submit" class="  btn-admin" value="SEARCH RECIPE">
+
+                    <select class= "btn-admin"name="recipe_category" id="recipe_category" class="filter">
+                    <?php 
+                        foreach($categories as $category){
+                            echo "<option value='".$category["id_category"]."'>".$category["name_category"]."</option>";
+                        }
+                    ?>
+                </select>
                 </form>
+
+                
                 
             </div>
 
