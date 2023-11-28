@@ -2,17 +2,20 @@
     require_once './database.php';
     // Reference: https://medoo.in/api/select
     
-    
   //el que se usa en el keyword
     if(isset($_GET["keyword"]) && isset($_GET["recipe_category"])){
 
         $items = $database->select("tb_recipes","*",["recipe_name[~]" => $_GET["keyword"],
          "AND"=>[
-            "id_category" => $_GET["recipe_category"]
+            "id_category" => $_GET["recipe_category"],
+            
+            
          ]
          
     ]);
         $category = $database->select("tb_categories","*",["id_category" => $_GET["recipe_category"]]);
+        
+        
     }else{
         echo "notfound";
     }
@@ -39,18 +42,6 @@
     <?php 
         include "./parts/header.php";
     ?>
-
-     
-        <nav class="category-nav">
-          <ul class="nav-list">
-              <li><a class="  nav-list-link" href="">Entradas</a></li>
-              <li><a class=" nav-list-link" href="#">Platos Fuertes</a></li>
-              <li><a class=" nav-list-link" href="#">Postres</a></li>
-              <li><a class=" nav-list-link" href="#">Bebidas</a></li>
-          </ul>
-        </nav>
-    
-
 
     <!-- recipes -->
     <section class="top10-container">
@@ -86,12 +77,12 @@
                    echo" <p class='recipe-text'>".substr($item["recipe_description"], 0, 70)."...</p>";
                 echo "</div>";
                 echo "<ul class='nav-list'>";
-                    echo "<li><a class='details' href='#'> 4 Personas</a></li>";
-                    echo "<li><a class='details' href='#'>Plato Fuerte</a></li>";
+                    echo "<li><a class='details' href='#'>".$category[0]["name_category"]."</a></li>";
+                    echo "<li><a class='details' href='#'>saber</a></li>";
                 echo "</ul>";
                 
                echo "<div class=cta-container>";
-                    echo "<a class='btn-recipe nav-list-link' href='#'>Mas</a>";
+                    echo "<a class='btn-recipe nav-list-link' href='description.php?id=".$item["id_recipe"]."'>More</a>";
                 echo "</div>";
            echo "</section>";
 

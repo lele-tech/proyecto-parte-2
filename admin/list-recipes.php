@@ -22,15 +22,17 @@
         include "../parts/header-admin.php";
     ?>
     <div class ="recipe-admin">
-    <h2 >Registered Recipes</h2>
+    <h2 class= "top10-title">Registered Recipes</h2>
     <table class= "recipe-thumb">
         <?php
+        echo"<table class='recipe-table'>";
             foreach($items as $item){
                 echo "<tr>";
-                echo "<td>".$item["recipe_name"]."</td>";
-                echo "<td><a href='edit-recipe.php?id=".$item["id_recipe"]."'>Edit</a> <a href='delete-recipe.php?id=".$item["id_recipe"]."'>Delete</a></td>";
+                echo "<td class='recipe-title'>".$item["recipe_name"]."</td>";
+                echo "<td class='fil'><a class='btn-admin-list nav-list-link ' href='edit-recipe.php?id=".$item["id_recipe"]."'>Edit</a> <a class='btn-admin-list nav-list-link margin-admin' href='delete-recipe.php?id=".$item["id_recipe"]."'>Delete</a></td>";
                 echo "</tr>";
             }
+            echo "</table>";
         ?>
     </table>
     </div>

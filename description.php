@@ -14,7 +14,9 @@
     ],[
         "id_recipe"=>$_GET["id"]
     ]);
+
 }
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,7 +45,7 @@
             echo "<div class='description-recipe'>";
                 echo " <div class='recipe-thumb'>";
                 echo "<img class='recipe-image' src='./scraping/images/".$item[0]["recipe_image"]. "'alt='".$item[0]["recipe_name"]."'>";
-                echo " <span class='recipe-price'>".$item[0]["recipe_price"]."</span>";
+                echo " <span class='recipe-price'> $".$item[0]["recipe_price"]."</span>";
             echo   "</div>";
             echo "<div>";
                 echo  "<h3 class='recipe-title'>".$item[0]["recipe_name"].": (".$item[0]["name_category"].")"."</h3>";
@@ -83,7 +85,11 @@
                 </div>
             </div>
         </div>
-
+        <?php
+        echo "<div class='cta-container'>";
+        echo "<a class='btn-recipe nav-list-link' href='book.php?id=". (isset($item[0]["id_recipe"]) ? $item[0]["id_recipe"] : '') ."'>Book</a>";
+        echo"</div>";
+        ?>
     </section>
 
     <section>

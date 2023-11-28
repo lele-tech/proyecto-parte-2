@@ -42,7 +42,7 @@
                 $filename = str_replace('.', '', $filename);
                 $filename = str_replace(' ', '-', $filename);
                 $img = "location-".$filename.".".$file_ext;
-                move_uploaded_file($file_tmp, "..scraping/images/".$img);
+                move_uploaded_file($file_tmp, "../scraping/images/".$img);
 
                 $database->insert("tb_recipes",[
                     "id_category"=> $_POST["category"],
@@ -76,17 +76,18 @@
     <?php 
         include "../parts/header-admin.php";
     ?>
-    <div class="recipe-admin">
-        <h2>Add New Recipe</h2>
-        <?php 
-            echo $message;
-        ?>
+    <div class="main-container">
+        <div class=" form-container ">
+          <h2>Add New Recipe</h2>
+            <?php 
+              echo $message;
+            ?>
         <form method="post" action="add-recipe.php" enctype="multipart/form-data">
             <div class="form-items recipe-thumb admin-margin">
                 <label for="recipe_name">Recipe name</label>
                 <input id="recipe_name " class="textfield" name="recipe_name" type="text">
             </div>
-            <div class="form-items recipe-thumb admin-margin">
+            <div class="form-items ">
                 <label for="category">Recipe category</label>
                 <select name="category" id="category">
                     <?php 
@@ -96,7 +97,7 @@
                     ?>
                 </select>
             </div>
-            <div class="form-items recipe-thumb admin-margin">
+            <div class="form-items ">
                 <label for="featured_recipe">Featured Recipe</label>
                 <select name="featured_recipe" id="featured_recipe">
                     <?php 
@@ -106,7 +107,7 @@
                     ?>
                 </select>
             </div>
-            <div class="form-items recipe-thumb admin-margin">
+            <div class="form-items ">
                 <label for="people_category">People Category</label>
                 <select name="people_category" id="people_category">
                     <?php 
@@ -116,25 +117,25 @@
                     ?>
                 </select>
             </div>
-            <div class="form-items recipe-thumb admin-margin">
+            <div class="form-items ">
                 <label for="recipe_description">Recipe Description</label>
                 <textarea id="recipe_description" name="recipe_description" id="" cols="30" rows="10"></textarea>
             </div>
-            <div class="form-items recipe-thumb admin-margin">
+            <div class="form-items ">
                 <label for="recipe_image">Recipe Image</label>
                 <img id="preview" src="..scraping/images/" alt="Preview">
                 <input id="recipe_image" type="file" name="recipe_image" onchange="readURL(this)">
             </div>
-            <div class="form-items recipe-thumb admin-margin">
+            <div class="form-items ">
                 <label for="recipe_price">Recipe Price</label>
                 <input id="recipe_price" class="textfield" name="recipe_price" type="text">
             </div>
-            <div class="form-items recipe-thumb admin-margin">
+            <div class="form-items ">
                 <input class="btn-recipe" type="submit" value="Add New Recipe">
             </div>
-        </form>
+             </form>
+        </div>
     </div>
-
     <script>
         function readURL(input) {
             if(input.files && input.files[0]){

@@ -83,11 +83,12 @@
     <!-- google fonts -->
     <link rel="stylesheet" href="../css/mainRecipes.css">
 </head>
-<body>
+<body >
     <?php 
         include "../parts/header-admin.php";
     ?>
-    <div class="container">
+    <div class="main-container">
+        <div class=" form-container ">
         <h2>Edit Recipe</h2>
         <?php 
             echo $message;
@@ -142,27 +143,28 @@
             </div>
             <input type="hidden" name="id" value="<?php echo $item[0]["id_recipe"]; ?>">
             <div class="form-items">
-                <input class="submit-btn" type="submit" value="Update Recipe">
+                <input class="btn-admin nav-list" type="submit" value="Update Recipe">
             </div>
         </form>
-    </div>
+        </div>
 
-    <script>
-        function readURL(input) {
-            if(input.files && input.files[0]){
-                let reader = new FileReader();
+        <script>
+              function readURL(input) {
+                  if(input.files && input.files[0]){
+                      let reader = new FileReader();
 
-                reader.onload = function(e) {
-                    let preview = document.getElementById('preview').setAttribute('src', e.target.result);
-                }
-                reader.readAsDataURL(input.files[0]);
+                            reader.onload = function(e) {
+                         let preview = document.getElementById('preview').setAttribute('src', e.target.result);
+                    }
+                     reader.readAsDataURL(input.files[0]);
             }
         }
         
-    </script>
-
+        </script>
+    </div>
     <?php 
         include "../parts/footer.php";
     ?>
+    
 </body>
 </html>

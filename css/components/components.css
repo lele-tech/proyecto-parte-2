@@ -55,6 +55,14 @@
     transition: background-color 0.3s, color 0.3s;
 }
 
+.btn-admin-list {
+    margin-bottom: 1rem;
+    align-items: center;
+    background: var(--clr-yellow);
+    padding: .5rem 2rem;
+    border-radius: 1.5rem;
+    transition: background-color 0.3s, color 0.3s;
+}
 .btn:hover {
     background-color: #1e70b9; /* Cambia el color al pasar el mouse */
 }
@@ -91,6 +99,98 @@
     transition: background-color 0.3s, color 0.3s;
 }
 
+
+.account-container{
+    display: grid;
+    width: 90vw;
+    margin: 2rem auto;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;;
+
+}
+
+.fil{
+    display: flex;
+    gap: 1rem;
+}
+.recipe-table {
+    margin-left: 5rem;
+    margin-top: 2rem;
+    border-collapse: collapse;
+    width: 100%;
+   
+}
+
+.form-text{
+    text-align: center;
+    font-size: var(--fs-nm);
+    font-family: var(--ff-main);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--clr-black);
+}
+.login-text{
+    margin-top: 1.5rem;
+}
+
+.register-text{
+    margin-top: 1.1rem;
+    text-align: left;
+}
+
+.form-container {
+    background-color: var(--clr-white-bg);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 400px; /* Ajusta el ancho del formulario según tus necesidades */
+}
+.form-items {
+    margin-bottom: 20px;
+}
+
+#preview {
+    max-width: 300px; 
+    max-height: 200px; 
+    width: auto; 
+    height: auto; 
+    margin-top: 10px; 
+}
+.main-container {
+    margin: 10rem;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.login{
+    display: grid;
+    border-radius: 2rem;
+    text-align: center;
+    padding: 2.3rem 4.5rem;
+    border: 3px solid var(--clr-black);
+}
+
+.container{
+    display: grid;
+    width: 15rem;
+}
+.search-container{
+    margin-top: 5rem;
+    height: 25rem;
+    width: 50%;
+   margin-left: 25%;
+}
+.register{
+    display: grid;
+    border-radius: 2rem;
+    text-align: center;
+    border: 3px solid var(--clr-black);
+    padding: 3rem 5.1rem;
+}
 /* Estilos para pantallas más pequeñas */
 @media (max-width: 767.8px) {
     .logo-scale {

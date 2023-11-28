@@ -8,9 +8,9 @@
             </label>
             <!-- mobile nav btn -->
             <ul class="home-list">
-                <li><a class="home-nav-list " href="./home.html">Home</a></li>
-                <li><a class="home-nav-list " href="./topRecipes.html">Categories</a></li>
-                <li><a class="home-nav-list " href="./description.html">Dishes</a></li>
+                <li><a class="home-nav-list " href="#">Home</a></li>
+                <li><a class="home-nav-list " href="#">Categories</a></li>
+                <li><a class="home-nav-list " href="#">Dishes</a></li>
             </ul>
 
         </nav>

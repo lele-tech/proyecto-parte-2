@@ -4,6 +4,8 @@
     $items = $database->select("tb_recipes","*");
 
     $categories = $database->select("tb_categories","*");
+    
+    
 
      // Reference: https://medoo.in/api/select
      //$categories = $database->select("tb_camping_categories","*");
@@ -28,10 +30,10 @@
          include "./parts/header.php";
         ?>
         <!-- destinations -->
-        <section class="recipe">
-            <h2 class="recipe-title">Find more delicios food</h2>
+        <section class="recipe search-container">
+            
             <div class="recipe-container">
-          
+            <h1 class="recipe-title">Find more delicios food</h1>
                 <form method= "get" action="topRecipes.php">
                      <label for="search" class="recipe-title">Search</label>
                    <input id="search" class="search" type="text" name="keyword">
