@@ -3,6 +3,8 @@
     require_once './database.php';
     $message = "";
     $messageLogin = "";
+
+    
     if($_POST){
 
         if(isset($_POST["login"])){
@@ -33,6 +35,7 @@
                 //validate login
                 //echo "validate login: ".$_POST["login"];
             //}
+
         }
 
         if(isset($_POST["register"])){
@@ -57,6 +60,7 @@
                 //header("location: book.php?id=".$_POST["register"]);
             }
         }
+
     }
 ?>
 
@@ -98,10 +102,14 @@
                         <input stylesheet='margin-bottom:1rem' id='password' type='password' name='password'>
                     </div>
                     <div class='login-text'>
+                    <a class="" href="reset_password.php">Olvidé mi contraseña</a>
+                    </div>
+                    <div class='login-text'>
                         <input class='btn nav-list' type='submit' value="LOGIN">
                     </div>
                     <p class='form-text login-text'><?php echo $message; ?></p>
                     <input type="hidden" name="login" value="1">
+                    
                 </form>
             </section>
         </div>

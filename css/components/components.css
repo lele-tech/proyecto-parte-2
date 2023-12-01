@@ -108,6 +108,13 @@
     gap: 1.5rem;;
 
 }
+.resset-container{
+    display: grid;
+    width: 90vw;
+    margin: 2rem auto;
+    gap: 1.5rem;;
+
+}
 
 .fil{
     display: flex;
