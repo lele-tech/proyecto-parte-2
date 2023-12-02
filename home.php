@@ -1,4 +1,12 @@
 <?php
+session_start();
+
+// Verifica si el usuario está autenticado
+if (!isset($_SESSION["isLoggedIn"])) {
+    
+    header("Location: forms.php");
+    exit;
+}
     require_once './database.php';
     // Reference: https://medoo.in/api/select
     $items = $database->select("tb_recipes","*");
@@ -26,6 +34,7 @@
 <body>
     <?php 
         include "./parts/header.php";
+        echo "<p>Welcome, " . $_SESSION["fullname"] . "!</p>";
     ?>
     <div class="home-container">
        <h1 class="home-tittle">The most delicios Spain food</h1>

@@ -1,12 +1,14 @@
 
 <?php
     require_once './database.php';
+    session_start();
     $message = "";
     $messageLogin = "";
 
     
     if($_POST){
 
+        var_dump($_POST);
         if(isset($_POST["login"])){
 
             $user = $database->select("tb_users","*",[

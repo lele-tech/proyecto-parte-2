@@ -1,19 +1,52 @@
 <?php
 
     require_once './database.php';
+
+    $lang= "EN";
+    $url_params = "";
+
     if($_GET){
-    $item = $database->select("tb_recipes",[
-        "[>]tb_categories"=>["id_category" => "id_category"],
-    ],[
-        "tb_recipes.id_recipe",
-        "tb_recipes.recipe_name",
-        "tb_recipes.recipe_description",
-        "tb_recipes.recipe_image",
-        "tb_recipes.recipe_price",
-        "tb_categories.name_category"
-    ],[
-        "id_recipe"=>$_GET["id"]
-    ]);
+    
+
+    if(isset($_GET["lang"]) && $_GET["lang"]=="es"){
+        $item = $database->select("tb_recipes",[
+            "[>]tb_categories"=>["id_category" => "id_category"],
+        ],[
+            "tb_recipes.id_recipe",
+            "tb_recipes.recipe_name_es",
+            "tb_recipes.recipe_description_es",
+            "tb_recipes.recipe_image",
+            "tb_recipes.recipe_price",
+            "tb_categories.name_category"
+        ],[
+            "id_recipe"=>$_GET["id"]
+        ]);
+
+        $item[0]["recipe_name"] = $item[0]["recipe_name_es"];
+        $item[0]["recipe_description"] = $item[0]["recipe_description_es"];
+
+        $lang= "EN";
+        $url_params = "?id=".$item[0]["id_recipe"];
+    }else{
+        $item = $database->select("tb_recipes",[
+            "[>]tb_categories"=>["id_category" => "id_category"],
+        ],[
+            "tb_recipes.id_recipe",
+            "tb_recipes.recipe_name",
+            "tb_recipes.recipe_name_es",
+            "tb_recipes.recipe_description",
+            "tb_recipes.recipe_description_es",
+            "tb_recipes.recipe_image",
+            "tb_recipes.recipe_price",
+            "tb_categories.name_category"
+        ],[
+            "id_recipe"=>$_GET["id"]
+        ]);
+
+        $lang= "ES";
+        $url_params = "?id=".$item[0]["id_recipe"]."&lang=es";
+
+    }
 
 }
     
@@ -48,10 +81,11 @@
                 echo " <span class='recipe-price'> $".$item[0]["recipe_price"]."</span>";
             echo   "</div>";
             echo "<div>";
+                echo"<a class='lenguage' href='description.php".$url_params."'>".$lang."</a>";
                 echo  "<h3 class='recipe-title'>".$item[0]["recipe_name"].": (".$item[0]["name_category"].")"."</h3>";
-                 echo  "<p class='recipe-text'>".$item[0]["recipe_description"]."</p>";
-                   echo"</div>";
-                   echo"</div>";
+                echo  "<p class='recipe-text'>".$item[0]["recipe_description"]."</p>";
+                echo"</div>";
+                 echo"</div>";
             ?>
             <div class="description-recipe">
                 <div>

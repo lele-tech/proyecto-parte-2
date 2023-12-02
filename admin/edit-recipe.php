@@ -60,6 +60,8 @@
             "recipe_name"=>$_POST["recipe_name"],
             "featured_recipe"=>$_POST["featured_recipe"],
             "recipe_description"=>$_POST["recipe_description"],
+            "recipe_description_es"=>$_POST["recipe_description_es"],
+            "recipe_name_es"=>$_POST["recipe_name_es"],
             "recipe_image"=> $img,
             "recipe_price"=>$_POST["recipe_price"]
         ],[
@@ -98,6 +100,10 @@
                 <label for="recipe_name">Recipe Name</label>
                 <input id="recipe_name" class="textfield" name="recipe_name" type="text" value="<?php echo $item[0]["recipe_name"] ?>">
             </div>
+            <div class="form-items">
+                <label for="recipe_name_es">Recipe Name Esp</label>
+                <input id="recipe_name_es" class="textfield" name="recipe_name_es" type="text" value="<?php echo $item[0]["recipe_name_es"] ?>">
+            </div>
            
             <div class="form-items">
                 <label for="category">Recipe Category</label>
@@ -128,8 +134,12 @@
                 </select>
             </div>
             <div class="form-items">
-                <label for="recipe_description">Recipe Description</label>
+                <label for="recipe_description">Recipe Description </label>
                 <textarea id="recipe_description" name="recipe_description" id="" cols="30" rows="10"><?php echo $item[0]["recipe_description"]; ?></textarea>
+            </div>
+            <div class="form-items">
+                <label for="recipe_description_es">Recipe Description Esp</label>
+                <textarea id="recipe_description_es" name="recipe_description_es" id="" cols="30" rows="10"><?php echo $item[0]["recipe_description_es"]; ?></textarea>
             </div>
             
             <div class="form-items">

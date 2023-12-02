@@ -1,6 +1,8 @@
 <?php
 require_once './database.php';
 
+session_start();
+
 $recipe_details = [];
 $updateCookie = false;
 
@@ -10,7 +12,7 @@ if (isset($_COOKIE['recipe_data'])) {
     if (isset($_GET["action"]) && $_GET["action"] == "add") {
         // Agrega la receta a la cookie del carrito
         $recipe_details[] = [
-            "id_recipe" => $_POST["id_recipe"],  // Ajusta esto según la estructura real de tu formulario
+            "id_recipe" => $_POST["id_recipe"], 
             "recipe_name" => $_POST["recipe_name"],
             "recipe_price" => $_POST["recipe_price"]
         ];
@@ -19,6 +21,23 @@ if (isset($_COOKIE['recipe_data'])) {
 
     if ($updateCookie) {
         setcookie('recipe_data', json_encode($recipe_details), time() + 72000);
+    }
+
+    if (isset($_GET["action"]) && $_GET["action"] == "delete") {
+        $recipeIndexToDelete = $_GET["recipe"];
+    
+        // Verifica si el índice es válido y existe en el array
+        if (isset($recipe_details[$recipeIndexToDelete])) {
+            // Elimina la receta del array
+            unset($recipe_details[$recipeIndexToDelete]);
+    
+            // Actualiza la cookie
+            setcookie('recipe_data', json_encode($recipe_details), time() + 72000);
+    
+            // Redirige para evitar reenviar el formulario si el usuario actualiza la página
+            header("Location: cart.php");
+            exit();
+        }
     }
 }
 ?>
@@ -61,10 +80,11 @@ if (isset($_COOKIE['recipe_data'])) {
                             ."<td class='recipe-title'>Precio</td>"
                         ."</tr>";
 
-                        foreach ($recipe_details as $recipe){
+                        foreach ($recipe_details as $index=> $recipe){
                             echo "<tr>";
                             echo "<td class='recipe-title'>" . (isset($recipe["recipe_name"]) ? $recipe["recipe_name"] : "") . "</td>";
                             echo "<td>" . (isset($recipe["recipe_price"]) ? "$" . $recipe["recipe_price"] : "") . "</td>";
+                            echo "<td><a class=' btn-cart nav-list-link 'href='cart.php?action=delete&recipe=" . $index . "'>Eliminar</a></td>";
                             echo "</tr>";
                         }
                     echo "</table>";
