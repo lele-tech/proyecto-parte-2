@@ -45,14 +45,14 @@
     */
 
     //link
-    $link = "https://www.allrecipes.com/recipes/77/drinks/";
+    $link = "https://www.allrecipes.com/recipes/726/world-cuisine/european/spanish/";
 
     $filenames = [];
     $menu_item_names = [];
     $menu_item_descriptions = [];
     $image_urls = [];
 
-    $menu_items = 6;
+    $menu_items = 20;
 
     $items = file_get_html($link);
 
@@ -119,9 +119,9 @@
     }
 
     //get and download images
-    /*foreach ($filenames as $index=>$image){
+    foreach ($filenames as $index=>$image){
         file_put_contents("./images/".$image.".jpg", file_get_contents($image_urls[$index]));
-    }*/
+    }
 
     //insert info
     // Reference: https://medoo.in/api/insert

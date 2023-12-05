@@ -11,6 +11,7 @@
         $items = $database->select("tb_recipes","*",["recipe_name[~]" => $_GET["keyword"],
          "AND"=>[
             "id_category" => $_GET["recipe_category"],
+           
             
             
          ]
@@ -78,13 +79,11 @@
                echo "</div>";
 
                 echo "<div>";
-                    echo"<a href='destination.php".$url_params."'>".$lang."</a>";
                     echo "<h3 class='recipe-title'>".$item["recipe_name"]."</h3>";
                     echo" <p class='recipe-text'>".substr($item["recipe_description"], 0, 70)."...</p>";
                 echo "</div>";
                 echo "<ul class='nav-list'>";
                     echo "<li><a class='details' href='#'>".$category[0]["name_category"]."</a></li>";
-                    echo "<li><a class='details' href='#'>saber</a></li>";
                 echo "</ul>";
                 
                echo "<div class=cta-container>";
